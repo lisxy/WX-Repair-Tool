@@ -1,23 +1,34 @@
 # WX Configuration Backups
 
-This repository is designed to store the configurations of the WechatXposed plugin. To make it convenient, the WechatXposed plugin defined in this repository includes 2.x series of the WechatXposed plugin and X 3.0. 
-Additionally, a shell script for automatic configuration importing is provided. 
+This repository is designed to store the configurations of the WechatXposed plugin. 
+To make it convenient, the WechatXposed plugin defined in this repository includes 2.x series of the WechatXposed plugin and the 3.0 version of the X plugin. 
 
-Please install the latest WX Repair Tool, activate it, import the adapted core data and FKZ_WX_DATA files, and restart the WeChat. 
-To be safe, please configure HMAL/HMA to prevent the WechatXposed plugin and the WX Repair Tool from being seen by WeChat. 
+To repair the WechatXposed plugin, please take the following actions sequentially. 
 
-For users who used the WechatXposed plugin before, importing FKZ_WX_DATA files may be unnecessary if the plugin was not reset. The FKZ_WX_DATA to be imported may not need to be adapted to both WeChat and WechatXposed versions. 
+- Make necessary preparations like [hiding the LRFP environments](https://github.com/LRFP-Team/LRFP/blob/main/Bypassers/); 
+- Install the latest WX Repair Tool (the latest public version recorded in this repository is ``v2.0``); 
+- Activate the WechatXposed and WX Repair Tool plugins in the (non-virtual) injection framework; 
+- Set the target scope of the two plugins to WeChat only; 
+- Import the adapted core data and FKZ_WX_DATA files manually or via the scripts provided in this repository; and
+- Relaunch WeChat. 
 
+To be safe, please configure HMA or one of its variants to prevent the WechatXposed plugin and the WX Repair Tool from being seen by WeChat. 
+Given the fact that applications from Mainland China (e.g., WeChat, UnionPay, and Bank of China) will detect abroad applications (e.g., Telegram) besides detecting the LRFP environments, 
+please consider [the game of cat-and-mouse](https://github.com/LRFP-Team/LRFP/blob/main/Bypassers/HMA.md). 
+
+For users who used the WechatXposed plugin before, importing FKZ_WX_DATA files may be unnecessary if the plugin was not reset. 
+The FKZ_WX_DATA to be imported may not need to be adapted to both WeChat and WechatXposed versions as well. 
 The configuration backups of this repository came from everywhere. Please test on your own whether the functions of the WechatXposed plugin become available after importing. 
-The judgment relying on the prompt of the WX Repair Tool or the user interface (UI) of the WechatXposed plugin can be incorrect. 
+Please judge by the real availability of the functions. The judgment relying on the prompt of the WX Repair Tool or the user interface (UI) of the WechatXposed plugin can be incorrect. 
 
-Welcome to submit core data and FKZ_WX_DATA backups to this repository. Among them, FKZ_WX_DATA may contain WXID information. Please do not submit FKZ_WX_DATA to this repository if you mind this. 
+Welcome to submit core data and FKZ_WX_DATA backups to this repository. Since FKZ_WX_DATA may contain WXID information among them, please do not submit FKZ_WX_DATA to this repository if minded. 
 Here, we would like to express our sincere gratitude to those who provided the configuration backups. 
 
 ## Architecture
 
-Here is an overview of the architecture. To facilitate separate downloading, each bottom-level folder has been converted into a ZIP file, whose content is the same as the original folder and requires decompression after downloading. 
-Please see below for the definition and contents of fundamental folders. 
+Here is an overview of the architecture. 
+To facilitate separate downloading, each bottom-level folder has been converted into a ZIP file, whose content is the same as the original folder and requires decompression after downloading. 
+Please see below for the definition and contents of the fundamental folders. 
 
 ```
 ├─核心文件
@@ -50,51 +61,68 @@ Please see below for the definition and contents of fundamental folders.
 
 ### 核心文件
 
-The English of this folder is ``Core Data``. The child level of this folder indicates the WeChat version. The child level of a WeChat version indicates the plugin version, which is the folder that needs to be copied. 
+The English of this folder is ``Core Data``. The child level of this folder indicates the WeChat version. 
+The child level of a WeChat version indicates the plugin version, which is the folder that needs to be copied. 
 We define each of these folders as a fundamental folder. Each fundamental folder of the core data contains several files and may also contain folders. 
 
-Please **copy** the corresponding GitHub repository folder (e.g., wx6_2.44) adapted to both your WeChat and WechatXposed **to** both of the following directories (the second one is optional) on your Android device. 
+Please **copy** the corresponding GitHub repository folder (e.g., wx6_2.44), adapted to both your WeChat and WechatXposed, 
+**to** both of the following directories (the second one is optional) on the Android device. 
 Please grant 755 permissions for the two copied folders. Please grant 755 and 644 permissions for their subfolders (if there are) and subfiles, respectively. 
 Subsequently, please change the owner and the user group of the two folders and all the objects inside them to the WeChat application. 
 
-- /data/user/0/com.tencent.mm/files/
-- /sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_MODULE/
+- ``/data/user/0/com.tencent.mm/files/``
+- ``/sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_MODULE/``
 
 That is, taking wx6_2.44 as an example, both of the following directories should exist and should not be empty, with permissions set to 755, on your Android device, after successful operations. 
 The permissions of their subfolders (if there are) and subfiles should have been set to 755 and 644, respectively. 
 The owner and the user group of the two folders and all the objects inside them should have been set to the WeChat application. Similarly, the second folder is optional. 
 
-- /data/user/0/com.tencent.mm/files/wx6_2.44/
-- /sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_MODULE/wx6_2.44/
+- ``/data/user/0/com.tencent.mm/files/wx6_2.44/``
+- ``/sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_MODULE/wx6_2.44/``
 
 In addition, if the WeChat you are using is in a multi-user system, please replace 0 in the directory /data/user/0/com.tencent.mm/files/ in the above operations with your user ID, such as 999. 
 
 ### FKZ_WX_DATA
 
-For users who used the WechatXposed plugin before, importing FKZ_WX_DATA files may be unnecessary if the plugin was not reset. The FKZ_WX_DATA to be imported may not need to be adapted to both WeChat and WechatXposed versions. 
+For users who used the WechatXposed plugin before, importing FKZ_WX_DATA files may be unnecessary if the plugin was not reset. 
+The FKZ_WX_DATA to be imported may not need to be adapted to both WeChat and WechatXposed versions as well. 
 
 In this repository, the child level of this folder indicates the WeChat version. The child level of a WeChat version indicates the plugin version, which contains the files that need to be copied. 
 
 We define each of the folders that indicate the plugin version as a fundamental folder. Each fundamental folder of FKZ_WX_DATA contains several files whose names start with ``FKZ_WX_``, but no folders. 
 
-Please **copy** the files whose names start with ``FKZ_WX_`` in the corresponding GitHub repository folder adapted to both your WeChat and WechatXposed **to** both of the following directories (the second one is optional) on your Android device. 
+Please **copy** the files, whose names start with ``FKZ_WX_`` in the corresponding GitHub repository folder adapted to both your WeChat and WechatXposed, 
+**to** both of the following directories (the second one is optional) on your Android device. 
 
 Please set the permissions, the owner, and the user group of all the files copied to 660, the WeChat application, and the WeChat application, respectively. 
 
-- /data/data/com.tencent.mm/databases/
-- /sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_DATABASE/
+- ``/data/data/com.tencent.mm/databases/``
+- ``/sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_DATABASE/``
 
 That is, both of the following directories should exist and should not be empty on your Android device after successful operations. 
 The permissions, the owner, and the user group of all the files copied should have been set to 660, the WeChat application, and the WeChat application, respectively. 
 
-- /data/data/com.tencent.mm/databases/
-- /sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_DATABASE/
+- ``/data/data/com.tencent.mm/databases/``
+- ``/sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_DATABASE/``
 
-## autoImport.sh
+## Shell scripts
 
-By executing it locally with root privileges on your Android device after checking it, this script will automatically import the core data and FKZ_WX_DATA files for the WechatXposed plugin. 
+This repository offers some shell scripts for a better importing experience. They can be executed in the MT Manager or Termux. Please use the system environment when executing in MT Manager. 
 
-This script can be executed in Termux or MT Manager. Please use the system environment when executing in MT Manager. 
+If networking features (such as downloading) are needed, please ensure that the application executing the script can access GitHub normally. 
+
+Making the WechatXposed plugin run under a virtual injection framework will not be supported by these scripts. Such behaviors face extremely high risks and are highly unrecommended. 
+
+Again, please always review the shell scripts manually or via a GenAI agent before execution, especially for those who require root privileges. 
+
+### ``autoImport.sh``
+
+After executing it with root privileges on the Android device, this script will search for corresponding files in this repository. 
+If successful, it will download and automatically import the core data and FKZ_WX_DATA files for the WechatXposed plugin. 
+
+### ``interactiveImport.sh``
+
+This script will interact with users. Some functions may be unavailable without root privileges. 
 
 ## Exceptions
 
@@ -102,11 +130,17 @@ Here are some common exception handling methods in the WX Repair Tool.
 
 ### hookFail suspicious
 
-This exception often occurs due to an incorrect number of core data files or version adaptation errors. Importing the files of the core data adapted to both the WeChat and WechatXposed versions can solve this exception. 
+This exception often occurs due to an incorrect number of core data files or version adaptation errors. 
+Importing the files of the core data adapted to both the WeChat and WechatXposed versions can solve this exception. 
 
 ### verifier6_time or verifier6 exception
 
-This exception usually occurs after importing FKZ_WX_DATA using MT Manager with root permissions. Setting both the owner and user group of the imported FKZ_WX_DATA to the WeChat application can solve this exception. 
+This exception usually occurs after importing FKZ_WX_DATA using MT Manager with root permissions. 
+Setting both the owner and user group of the imported FKZ_WX_DATA to the WeChat application can solve this exception. 
+
+### Fix for the issue where the plugin entry is visible in Settings but has no actual effect after using the WechatXposed plugin normally for some time
+
+The permissions of core files or FKZ_WX_DATA have been changed. Please manually fix the permissions via the MT Manager or shell commands, or re-import related files using the scripts from this repository. 
 
 ## License
 
@@ -114,12 +148,12 @@ The license of this repository complies with the upstream license, which is open
 
 ## Acknowledgement
 
-- [https://github.com/fkzhang/WechatUnrecalled](https://github.com/fkzhang/WechatUnrecalled)
-- [https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed](https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed)
-- [https://github.com/Xposed-Modules-Repo/wx.repair.tool](https://github.com/Xposed-Modules-Repo/wx.repair.tool)
+- The WeChat Unrecalled plugin (the predecessor of the WechatXposed plugin): [https://github.com/fkzhang/WechatUnrecalled](https://github.com/fkzhang/WechatUnrecalled)
+- The WechatXposed plugin: [https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed](https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed)
+- WX Repair Tool (removed): [https://github.com/Xposed-Modules-Repo/wx.repair.tool](https://github.com/Xposed-Modules-Repo/wx.repair.tool)
 - [@cuuemo](https://github.com/cuuemo): ``./核心文件/8.0.48 (2580)/wx6_2.44``
 - [@bzggnveee](https://github.com/bzggnveee)
-  - [Pull Request #10](https://github.com/TMLP-Team/WX-Configuration-Backups/pull/10): Update ``autoImport.sh``
+  - [Pull Request #10](https://github.com/LRFP-Team/WX-Configuration-Backups/pull/10): Update ``autoImport.sh``
     - Repair the parsing of WeChat user ID
     - Beautify the script
     - Optimize English expressions
@@ -139,19 +173,38 @@ The license of this repository complies with the upstream license, which is open
   - [https://wwbg.lanzoub.com/iEhha2yg9ehi](https://wwbg.lanzoub.com/iEhha2yg9ehi): ``./核心文件/Play 8.0.33 (2306)/wx6_v2.44``
   - [https://www.123684.com/s/78hZVv-G2Bn3](https://www.123684.com/s/78hZVv-G2Bn3): ``./核心文件/Play 8.0.42 (2429)/x7_3.0`` and ``./FKZ_WX_DATA/Play 8.0.42 (2429)/x7_v3.0``
 
+"Time flies like an arrow, and the sun and moon shuttle back and forth. "
+Before we knew it, the servers of the WechatXposed plugin had been down for a year. We will forever remember the pioneers who dared to change the world. 
+"When we talk about something, it leads to a terminal. "
+
 ---
 
 # WX Configuration Backups
 
-本存储库旨在存储微 X 模块的配置。为便于表述，本仓库中定义的微 X 模块包含 2.x 系列的微 X 模块和 3.0 版本的 X 模块。此外，此处提供了一个自动导入配置的 shell 脚本，该脚本需要 root 权限，请审计后使用。
+本存储库旨在存储微 X 模块的配置。
+为便于表述，本仓库中定义的微 X 模块包含 2.x 系列的微 X 模块和 3.0 版本的 X 模块。
 
-请安装最新版 WX Repair Tool，激活微 X 模块和 WX Repair Tool，导入适配的核心文件和 FKZ_WX_DATA，并重启微信。为安全起见，请配置 HMAL/HMA 以保持微信无法在应用列表中检测到微 X 模块和 WX Repair Tool。
+要修复微 X 模块，请依次执行以下操作。
 
-已正常使用过微 X 模块且未清除或重置 FKZ_WX_DATA 的用户可能不需要导入 FKZ_WX_DATA，要导入的 FKZ_WX_DATA 可能不需要同时适配微信和微 X 模块版本也能成功修复微 X 模块。
+- 做好所需的准备，例如[隐藏 LRFP 环境](https://github.com/LRFP-Team/LRFP/blob/main/Bypassers/)；
+- 安装最新版 WX Repair Tool 插件（本存储库记录的公开的最新版是 ``v2.0``）；
+- 激活微 X 模块和 WX Repair Tool 两个插件；
+- 在（非虚拟）注入框架中设置两个插件的作用域为仅微信；
+- 人工或通过本存储库中的脚本导入适配的核心数据和 FKZ_WX_DATA 文件；以及
+- 重启微信。
 
-本存储库的配置数据备份源于五湖四海，请在导入后自行实测是否可用。测试时，请以实际功能而非 WX Repair Tool 的检验结果或插件的用户界面（User Interface，简称 UI）为准。
+请安装最新版 WX Repair Tool，激活微 X 模块和 WX Repair Tool，导入适配的核心文件和 FKZ_WX_DATA，并重启微信。
+为安全起见，请配置隐藏应用列表或其变种中的一个以保持微信无法在应用列表中检测到微 X 模块和 WX Repair Tool。
+由于来自中国大陆的应用程序（例如微信、云闪付和中国银行）不仅会检测 LRFP 环境，还会检测境外应用（例如 Telegram），
+请考虑[猫和老鼠游戏](https://github.com/LRFP-Team/LRFP/blob/main/Bypassers/HMA.md)。
 
-欢迎各位朋友向本仓库提交核心文件和 FKZ_WX_DATA 备份，其中，FKZ_WX_DATA 可能含有 WXID 信息，介意者请勿向本仓库提交 FKZ_WX_DATA。在此，我们向提供配置数据的朋友们一并表示感谢。
+已正常使用过微 X 模块且未清除或重置 FKZ_WX_DATA 的用户可能不需要导入 FKZ_WX_DATA，
+要导入的 FKZ_WX_DATA 可能不需要同时适配微信和微 X 模块版本也能成功修复微 X 模块。
+本存储库的配置数据备份源于五湖四海，请在导入后自行测试是否可用。
+测试时，请以实际功能而非 WX Repair Tool 的检验结果或微 X 模块的用户界面（User Interface，简称 UI）为准。
+
+欢迎各位朋友向本仓库提交核心文件和 FKZ_WX_DATA 备份。其中，由于 FKZ_WX_DATA 可能含有 WXID 信息，介意者请勿向本仓库提交 FKZ_WX_DATA。
+在此，我们向提供配置数据的朋友们一并表示感谢。
 
 ## 架构
 
@@ -188,25 +241,28 @@ The license of this repository complies with the upstream license, which is open
 
 ### 核心文件
 
-在本存储库中，核心文件的下一层为微信版本；再下一层为插件版本，即为需要被复制的文件夹。我们定义该文件夹为基层文件夹，核心文件的基层文件夹中含有若干文件，也可能含有文件夹。
+在本存储库中，核心文件的下一层为微信版本；再下一层为插件版本，即为需要被复制的文件夹。
+我们定义该文件夹为基层文件夹，核心文件的基层文件夹中含有若干文件，也可能含有文件夹。
 
-请将对应您微信和微 X 模块的 GitHub 仓库文件夹（例如 wx6_2.44）复制到您安卓设备的以下两个目录下（第二个目录不是必须的），向目录授予 755 权限，并向其子文件夹（如有）和子文件分别授予 755 和 644 权限。
+请将对应您微信和微 X 模块的 GitHub 仓库文件夹（例如 wx6_2.44）复制到您安卓设备的以下两个目录下（第二个目录不是必须的），
+向目录授予 755 权限，并向其子文件夹（如有）和子文件分别授予 755 和 644 权限。
 随后，请将这两个目录及目录内的所有内容的所有者和用户组均设置为微信应用。
 
-- /data/user/0/com.tencent.mm/files/
-- /sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_MODULE/
+- ``/data/user/0/com.tencent.mm/files/``
+- ``/sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_MODULE/``
 
 即，以 wx6_2.44 为例，操作完成后，在您的安卓设备中，以下两个目录应当存在且非空，其权限为 755，其里面的文件夹（如有）的权限为 755，其里面的文件的权限为 644。
 两个目录及目录内的所有内容的所有者和用户组均应已被设置为微信应用。同理，第二个目录不是必须的。
 
-- /data/user/0/com.tencent.mm/files/wx6_2.44/
-- /sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_MODULE/wx6_2.44/
+- ``/data/user/0/com.tencent.mm/files/wx6_2.44/``
+- ``/sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_MODULE/wx6_2.44/``
 
 此外，如果您所使用的微信位于多用户系统中，请将以上操作中的目录 /data/user/0/com.tencent.mm/files/ 中的 0 替换为您的用户 ID，例如 999。
 
 ### FKZ_WX_DATA
 
-已正常使用过微 X 模块且未清除或重置 FKZ_WX_DATA 的用户可能不需要导入 FKZ_WX_DATA，要导入的 FKZ_WX_DATA 可能不需要同时适配微信和微 X 模块版本也能成功修复微 X 模块。
+已正常使用过微 X 模块且未清除或重置 FKZ_WX_DATA 的用户可能不需要导入 FKZ_WX_DATA，
+要导入的 FKZ_WX_DATA 可能不需要同时适配微信和微 X 模块版本也能成功修复微 X 模块。
 
 在本存储库中，FKZ_WX_DATA 的下一层为微信版本；再下一层为插件版本，里面的文件即为需要被复制的文件。
 
@@ -216,19 +272,32 @@ The license of this repository complies with the upstream license, which is open
 
 请将被复制过去的文件的权限、所有者、用户组分别设置为 660、微信应用和微信应用。
 
-- /data/data/com.tencent.mm/databases/
-- /sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_DATABASE/
+- ``/data/data/com.tencent.mm/databases/``
+- ``/sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_DATABASE/``
 
 即，操作完成后，在您的安卓设备中，以下目录应当存在且为非空。被复制过去的文件的权限、所有者、用户组应已被分别设置为 660、微信应用和微信应用。同理，第二个目录不是必须的。
 
-- /data/data/com.tencent.mm/databases/
-- /sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_DATABASE/
+- ``/data/data/com.tencent.mm/databases/``
+- ``/sdcard/Android/data/com.tencent.mm/files/WechatXposed/BACKUP/BACKUP_DATABASE/``
 
-## autoImport.sh
+## Shell 命令
 
-在安卓设备上审计后使用 root 权限本地执行，该脚本将基于本存储库自动向安卓设备本地导入微 X 模块核心文件和 FKZ_WX_DATA。
+为了更好的体验，本存储库提供了一些 shell 脚本。这些脚本可以在 MT 管理器或 Termux 中执行，若在 MT 管理器中执行，请使用系统环境。
 
-该脚本支持在 Termux 或 MT 管理器中执行，在 MT 管理器中执行时请使用系统环境。
+如需使用联网功能（如下载），请确保执行该脚本的载体能够正常访问 GitHub。
+
+此外，在虚拟注入框架下使用微 X 模块不会得到这些脚本的支持，此行为的风险极高，是极为不推荐的。
+
+再次提醒，请人工或使用生成式人工智能工具审阅代码后再执行 shell 脚本，尤其是那些需要 root 权限的脚本。
+
+### ``autoImport.sh``
+
+在安卓设备上使用 root 权限执行后，该脚本将根据设备环境在本存储库中查找对应的文件。
+查找成功后，该脚本会将微 X 模块的核心文件和 FKZ_WX_DATA 下载到安卓设备上并自动完成导入。
+
+### ``interactiveImport.sh``
+
+该脚本会与用户交互，若无 root 权限，一些功能将不可用。
 
 ## 常见异常处理
 
@@ -236,11 +305,17 @@ The license of this repository complies with the upstream license, which is open
 
 ### hookFail 可疑
 
-该异常往往伴随核心文件数据文件数不正确或版本适配错误的异常出现，导入同时适配于所使用的微信和微 X 模块版本的核心文件数据即可处理该异常。
+该异常往往伴随核心文件数据文件数不正确或版本适配错误的异常出现，
+导入同时适配于所使用的微信和微 X 模块版本的核心文件数据即可处理该异常。
 
 ### verifier6_time 或 verifier6 异常
 
-该异常通常出现于使用具有 root 权限的 MT 管理器导入 FKZ_WX_DATA 后，将导入的 FKZ_WX_DATA 的所有者和用户组均设置为微信应用即可解决该异常。
+该异常通常出现于使用具有 root 权限的 MT 管理器导入 FKZ_WX_DATA 后，
+将导入的 FKZ_WX_DATA 的所有者和用户组均设置为微信应用即可解决该异常。
+
+### 修复且正常使用微 X 模块一段时间后在设置能正常看到插件入口但未没有实际效果
+
+核心文件或 FKZ_WX_DATA 的权限被更改，请通过 MT 管理器或执行 shell 命令手动修复权限，或使用本存储库的脚本重新导入以进行修复。
 
 ## 使用许可
 
@@ -248,12 +323,12 @@ The license of this repository complies with the upstream license, which is open
 
 ## 致谢
 
-- [https://github.com/fkzhang/WechatUnrecalled](https://github.com/fkzhang/WechatUnrecalled)
-- [https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed](https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed)
-- [https://github.com/Xposed-Modules-Repo/wx.repair.tool](https://github.com/Xposed-Modules-Repo/wx.repair.tool)
+- 微信防撤回（微 X 模块前身）：[https://github.com/fkzhang/WechatUnrecalled](https://github.com/fkzhang/WechatUnrecalled)
+- 微 X 模块：[https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed](https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed)
+- WX Repair Tool（已删除）：[https://github.com/Xposed-Modules-Repo/wx.repair.tool](https://github.com/Xposed-Modules-Repo/wx.repair.tool)
 - [@bzggnveee](https://github.com/bzggnveee)
-  - [Pull Request #10](https://github.com/TMLP-Team/WX-Configuration-Backups/pull/10)：更新 ``autoImport.sh``
-    - 修复微信用户ID解析
+  - [Pull Request #10](https://github.com/LRFP-Team/WX-Configuration-Backups/pull/10)：更新 ``autoImport.sh``
+    - 修复微信用户 ID 解析
     - 美化脚本
     - 优化英文表达
     - 使用 ``printf`` 替换多余的 ``echo``
@@ -272,3 +347,7 @@ The license of this repository complies with the upstream license, which is open
     - ``./核心文件/Play 8.0.30 (2244)/wx6_2.39`` 和 ``./FKZ_WX_DATA/Play 8.0.30 (2244)/wx6_v2.39``
   - [https://wwbg.lanzoub.com/iEhha2yg9ehi](https://wwbg.lanzoub.com/iEhha2yg9ehi)：``./核心文件/Play 8.0.33 (2306)/wx6_2.44``
   - [https://www.123684.com/s/78hZVv-G2Bn3](https://www.123684.com/s/78hZVv-G2Bn3)：``./核心文件/Play 8.0.42 (2429)/x7_3.0`` 和 ``./FKZ_WX_DATA/Play 8.0.42 (2429)/x7_v3.0``
+
+“光阴似箭，日月如梭。”
+不知不觉间，微 X 模块的服务器已经停止运行一年了，我们将永远缅怀勇于改变世界的先驱者们。
+“时间扑面而来，我们终将释怀。”
