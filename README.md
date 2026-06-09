@@ -144,22 +144,8 @@
 
 - 微信防撤回（微 X 模块前身）：[https://github.com/fkzhang/WechatUnrecalled](https://github.com/fkzhang/WechatUnrecalled)
 - 微 X 模块：[https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed](https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed)
-- WX Repair Tool（已删除）：[https://github.com/Xposed-Modules-Repo/wx.repair.tool](https://github.com/Xposed-Modules-Repo/wx.repair.tool)
-- [@bzggnveee](https://github.com/bzggnveee)
-  - [Pull Request #10](https://github.com/LRFP-Team/WX-Configuration-Backups/pull/10)：更新 ``autoImport.sh``
-    - 修复微信用户 ID 解析
-    - 美化脚本
-    - 优化英文表达
-    - 使用 ``printf`` 替换多余的 ``echo``
-    - 添加用户协议
-  - [https://www.123865.com/s/U2rKVv-UeH4H](https://www.123865.com/s/U2rKVv-UeH4H)
-    - ``./核心文件/8.0.24 (2100)/wx6_2.33`` 和 ``./FKZ_WX_DATA/8.0.24 (2100)/wx6_v2.33``
-    - ``./核心文件/8.0.24 (2100)/wx6_2.41`` 和 ``./FKZ_WX_DATA/8.0.24 (2100)/wx6_v2.41``
-- [@cuuemo](https://github.com/cuuemo)：``./核心文件/8.0.48 (2580)/wx6_2.44``
-- [@longli928](https://github.com/longli928)：``./核心文件/Play 8.0.48 (2588)/x7_3.0`` 和 ``./FKZ_WX_DATA/Play 8.0.48 (2588)/x7_v3.0``
-- [@Y-sir](https://github.com/Y-sir)：``./FKZ_WX_DATA/8.0.45 (2520)/wx6_v2.44``
 - [https://wwbg.lanzoub.com/iEhha2yg9ehi](https://wwbg.lanzoub.com/iEhha2yg9ehi)：``./核心文件/Play 8.0.33 (2306)/wx6_2.44``
 
 “光阴似箭，日月如梭。”
-不知不觉间，微 X 模块的服务器已经停止运行一年了，我们将永远缅怀勇于改变世界的先驱者们。
+不知不觉间，微 X 模块的服务器已经停止运行，我们将永远缅怀勇于改变世界的先驱者们。
 “时间扑面而来，我们终将释怀。”
