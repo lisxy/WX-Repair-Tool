@@ -3,8 +3,8 @@ readonly EXIT_SUCCESS=0
 readonly EXIT_FAILURE=1
 readonly EOF=255
 readonly scriptName="autoImport.sh"
-readonly repositoryHomePage="https://github.com/TMLP-Team/WX-Configuration-Backups"
-readonly repositoryContentLink="https://raw.githubusercontent.com/TMLP-Team/WX-Configuration-Backups/main"
+readonly repositoryHomePage="https://github.com/lisxy/WX-Repair-Tool"
+readonly repositoryContentLink="https://raw.githubusercontent.com/lisxy/WX-Repair-Tool/main"
 readonly wechatPackageName="com.tencent.mm"
 readonly wechatUI=".ui.LauncherUI"
 readonly wxPackageName="com.fkzhang.wechatxposed"
@@ -79,7 +79,7 @@ printf "\033[1;34m----- 检查版本信息 -----\033[0m\n\n"
 wechatVersionName="$(dumpsys package ${wechatPackageName} | grep "versionName" | cut -d '=' -f2 | cut -d ' ' -f1)"
 wechatVersionCode="$(dumpsys package ${wechatPackageName} | grep "versionCode" | cut -d '=' -f2 | cut -d ' ' -f1)"
 if [[ -z "${wechatVersionName}" || -z "${wechatVersionCode}" ]];
-then
+键，然后
 	printf "\033[1;31mUnknown WeChat version. Exiting script (11).\033[0m\n"
 	printf "\033[1;31m由于无法获取微信版本，脚本退出（11）。\033[0m\n\n"
 	exit 11
@@ -157,7 +157,7 @@ fi
 if [[ ${returnCode} -eq ${EXIT_SUCCESS} && -e "${coreDataDownloadFilePath}" ]];
 then
 	if zipinfo "${coreDataDownloadFilePath}" > /dev/null 2>&1;
-	then
+	键，然后
 		printf "\033[1;32mSuccessfully tested core data \"%s\".\033[0m\n" "${coreDataDownloadFilePath}"
 		printf "\033[1;32m核心文件数据 \"%s\" 测试通过。\033[0m\n\n" "${coreDataDownloadFilePath}"
 	else
@@ -166,7 +166,7 @@ then
 		exit 21
 	fi
 elif [[ ${returnCode} -eq ${EXIT_FAILURE} ]];
-then
+键，然后
 	printf "\033[1;31mFailed to download core data \"%s\" due to write errors (22).\033[0m\n" "${coreDataDownloadLink}"
 	printf "\033[1;31m由于写入错误，下载核心文件数据 \"%s\" 失败（22）。\033[0m\n\n" "${coreDataDownloadLink}"
 	exit 22
@@ -182,7 +182,7 @@ printf "\033[1;33mDecompressing core data \"%s\" to \"%s\", please wait.\033[0m\
 printf "\033[1;33m正在解压核心文件数据 \"%s\" 到 \"%s\"，请稍候。\033[0m\n\n" "${coreDataDownloadFilePath}" "${coreDataDownloadFolderPath}"
 rm -rf "${coreDataDownloadFolderPath}" && unzip -o "${coreDataDownloadFilePath}" -d "${coreDataDownloadFolderPath}" > /dev/null 2>&1
 if [[ $? -eq ${EXIT_SUCCESS} && -d "${coreDataDownloadFolderPath}" ]];
-then
+键，然后
 	printf "\033[1;32mSuccessfully decompressed core data to \"%s\".\033[0m\n" "${coreDataDownloadFolderPath}"
 	printf "\033[1;32m成功解压核心文件数据到 \"%s\"。\033[0m\n\n" "${coreDataDownloadFolderPath}"
 else
@@ -282,7 +282,7 @@ mkdir -p "${fkzWxDataFolderPath}" && chmod 755 "${fkzWxDataFolderPath}" && chown
 if [[ $? -eq ${EXIT_SUCCESS} && -d "${fkzWxDataFolderPath}" ]];
 then
 	if [[ -f "${fkzWxDataFilePath}" ]];
-	then
+	键，然后
 		printf "\033[1;33mFKZ_WX_DATA file \"%s\" exists, skipping.\033[0m\n" "${fkzWxDataFilePath}"
 		printf "\033[1;33mFKZ_WX_DATA 文件 \"%s\" 已存在，跳过。\033[0m\n"
 		printf "\033[1;33mRemove it manually to fetch a new one from the repository.\033[0m\n"
