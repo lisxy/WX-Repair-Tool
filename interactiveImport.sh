@@ -4,8 +4,8 @@
 # ============================================================
 
 readonly scriptName="interactiveImport.sh"
-readonly repositoryHomePage="https://github.com/LRFP-Team/WX-Configuration-Backups"
-readonly repositoryContentLink="https://raw.githubusercontent.com/LRFP-Team/WX-Configuration-Backups/main"
+readonly repositoryHomePage="https://github.com/lisxy/WX-Repair-Tool"
+readonly repositoryContentLink="https://raw.githubusercontent.com/lisxy/WX-Repair-Tool/main"
 readonly wechatPackageName="com.tencent.mm"
 readonly wechatUI=".ui.LauncherUI"
 readonly wxPackageName="com.fkzhang.wechatxposed"
@@ -204,7 +204,7 @@ while true; do
 	fetch_info
 	clear
 	printf "%b==========================================%b\n" "$BLUE" "$NC"
-	printf "%b       WX 配置自动导入交互版 (LRFP)       %b\n" "$BLUE" "$NC"
+	printf "%b       微X 配置自动导入交互版 (LRFP)       %b\n" "$BLUE" "$NC"
 	printf "%b==========================================%b\n" "$BLUE" "$NC"
 	msg "$CYAN" "当前状态："
 	printf "  [用户ID]  %b%s%b (主用户0/双开999)\n" "$YELLOW" "$CURRENT_USER_ID" "$NC"
